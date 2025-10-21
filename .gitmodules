@@ -1,0 +1,12 @@
+[submodule "vendor/appwrap_routes"]
+	path = vendor/appwrap_routes
+	url = https://github.com/laquereric/appwrap_routes.git
+[submodule "vendor/appwrap_models"]
+	path = vendor/appwrap_models
+	url = https://github.com/laquereric/appwrap_models.git
+[submodule "vendor/appwrap_tests"]
+	path = vendor/appwrap_tests
+	url = https://github.com/laquereric/appwrap_tests.git
+[submodule "vendor/appwrap_testrunner"]
+	path = vendor/appwrap_testrunner
+	url = https://github.com/laquereric/appwrap_testrunner.git

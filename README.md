@@ -75,6 +75,76 @@ After checking out the repo, run `bundle install` to install dependencies. Then,
 
 To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `lib/appwrap_manager/version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
+### Working with Git Submodules
+
+This project uses git submodules to manage development dependencies on the related appwrap gems. When developing locally, the Gemfile will automatically use the local submodule versions instead of the GitHub repositories.
+
+#### Initial Setup
+
+When first cloning this repository, initialize and update the submodules:
+
+```shell
+$ git clone https://github.com/laquereric/appwrap_manager.git
+$ cd appwrap_manager
+$ git submodule init
+$ git submodule update
+```
+
+Or clone with submodules in one command:
+
+```shell
+$ git clone --recurse-submodules https://github.com/laquereric/appwrap_manager.git
+```
+
+#### Updating Submodules
+
+To update all submodules to their latest versions:
+
+```shell
+$ git submodule update --remote
+```
+
+To update a specific submodule:
+
+```shell
+$ git submodule update --remote vendor/appwrap_routes
+```
+
+#### Working on Submodule Changes
+
+1. Navigate to the submodule directory:
+   ```shell
+   $ cd vendor/appwrap_routes
+   ```
+
+2. Create and checkout a new branch:
+   ```shell
+   $ git checkout -b feature/my-new-feature
+   ```
+
+3. Make your changes and commit them:
+   ```shell
+   $ git add .
+   $ git commit -m "Add new feature"
+   $ git push origin feature/my-new-feature
+   ```
+
+4. Return to the main project and commit the submodule update:
+   ```shell
+   $ cd ../..
+   $ git add vendor/appwrap_routes
+   $ git commit -m "Update appwrap_routes submodule"
+   ```
+
+#### Submodule Structure
+
+The following submodules are included in the `vendor/` directory:
+
+- `vendor/appwrap_routes` - Route extraction functionality
+- `vendor/appwrap_models` - Model extraction functionality  
+- `vendor/appwrap_tests` - Test extraction functionality
+- `vendor/appwrap_testrunner` - Test execution functionality
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at [https://github.com/laquereric/appwrap_manager](https://github.com/laquereric/appwrap_manager). This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
