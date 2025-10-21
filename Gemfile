@@ -12,7 +12,7 @@ gem "rspec", "~> 3.0"
 gem "cucumber", "~> 9.0"
 
 # Use local submodules for development, GitHub for production
-if File.exist?(File.expand_path("vendor/appwrap_routes", __dir__))
+if File.directory?(File.expand_path("vendor", __dir__))
   gem "appwrap_routes", path: "vendor/appwrap_routes"
   gem "appwrap_models", path: "vendor/appwrap_models"
   gem "appwrap_tests", path: "vendor/appwrap_tests"
